@@ -107,11 +107,62 @@
                 width: 200px;
             }
         }
+		
+		/* 新增的说明部分样式 */
+		.instructions {
+		  position: fixed;
+		  top: 50%; /* 垂直居中 */
+		  left: 50%; /* 水平居中 */
+		  transform: translate(-50%, -50%); /* 使用 transform 精确居中 */
+		  font-size: 16px;
+		  color: #333;
+		  background-color: #fff;
+		  padding: 15px;
+		  border-radius: 5px;
+		  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		  width: 80%;
+		  z-index: 10;
+		  display: block; /* 默认显示说明 */
+		}
+		
+		.instructions ul {
+		  margin: 0;
+		  padding-left: 20px;
+		}
+		
+		.instructions li {
+		  margin-bottom: 10px;
+		}
+		
+		.close-btn {
+		  position: absolute;
+		  top: 5px;
+		  right: 20px;
+		  font-size: 20px;
+		  color: #888;
+		  cursor: pointer;
+		}
+
     </style>
 </head>
 <body>
 
     <h1>我的网址收藏</h1>
+	
+	
+<!-- 说明部分 -->
+<div class="instructions" id="instructions">
+  <span class="close-btn" id="closeBtn" style="color: red; font-size: 50px;">&times;</span> <!-- 关闭按钮 -->
+  <h3>温馨提示：</h3>
+  <ul>
+	<li>1、由与网页托管于国外服务器，可能会出现加载不出来的问题；</li>
+    <li>2、当页面出现BUG或者打不开时请尝试多刷新几次；</li>
+    <li>3、当刷新页面依然无法解决时可尝试更换浏览器打开；</li>
+    <li>4、微信打开时可能会提醒有风险，请忽略；</li>
+	<li>5、网页部分内容来自网络，请自行甄别，博主不承担任何风险；</li>
+  </ul>
+</div>
+
 
     <div id="search-container">
         <input type="text" id="search-input" placeholder="搜索收藏的网址..." onkeyup="searchBookmarks()">
@@ -149,7 +200,7 @@
     </div>
 
     <footer>
-        <p>© 20241121PM Kevin的个人网址收藏. 未经许可，禁止转载.</p>
+        <p>© 2025   Kevin的个人网址收藏. 未经许可，禁止转载.</p>
     </footer>
 
     <script>
@@ -189,6 +240,12 @@
                 result.classList.add('visible');
             }
         }
+		
+		
+		// 关闭说明按钮
+		closeBtn.addEventListener('click', () => {
+		  instructions.style.display = 'none'; // 隐藏说明部分
+		});
     </script>
 
 </body>
